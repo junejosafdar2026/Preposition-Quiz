@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepositions - SALA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="sala-header">
+        <h1>Shah Abdul Latif Academy <span class="brand-tag">SALA</span></h1>
+        <p class="author">By Safdar Junejo</p>
+        
+        <a href="https://whatsapp.com/channel/0029Vb5tZoH0lwgxaM1Jmr2h" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Join WhatsApp Channel
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <div class="intro-card">
+            <h2>IBA English Preparation</h2>
+            <p>Master the use of <strong>Prepositions</strong>. These questions are based on the frequent patterns found in IBA Sukkur & STS entrance exams.</p>
+        </div>
+
+        <div id="quiz-container">
+            </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button onclick="window.history.back()" class="back-btn">← Back to Main Menu</button>
+        </div>
+
+    </div>
+
+    <script>
+        // DATABASE OF PREPOSITIONS
+        const questions = [
+            { q: "He is afraid ___ spiders.", options: ["A. from", "B. with", "C. of", "D. in"], ans: "C. of" },
+            { q: "She is good ___ mathematics.", options: ["A. in", "B. at", "C. on", "D. with"], ans: "B. at" },
+            { q: "Look ___ the blackboard.", options: ["A. on", "B. at", "C. in", "D. to"], ans: "B. at" },
+            { q: "He died ___ cancer.", options: ["A. from", "B. of", "C. by", "D. with"], ans: "B. of" },
+            { q: "I am interested ___ learning English.", options: ["A. on", "B. to", "C. for", "D. in"], ans: "D. in" },
+            { q: "The book belongs ___ me.", options: ["A. to", "B. with", "C. for", "D. at"], ans: "A. to" },
+            { q: "She is married ___ a doctor.", options: ["A. with", "B. to", "C. by", "D. for"], ans: "B. to" },
+            { q: "Please listen ___ me carefully.", options: ["A. at", "B. on", "C. to", "D. with"], ans: "C. to" },
+            { q: "He jumped ___ the river.", options: ["A. in", "B. into", "C. on", "D. at"], ans: "B. into" },
+            { q: "They arrived ___ the airport at 9 PM.", options: ["A. in", "B. to", "C. at", "D. on"], ans: "C. at" },
+            { q: "Pakistan is famous ___ its sports goods.", options: ["A. in", "B. for", "C. at", "D. with"], ans: "B. for" },
+            { q: "Do not laugh ___ the poor.", options: ["A. on", "B. at", "C. with", "D. to"], ans: "B. at" },
+            { q: "He is suffering ___ fever.", options: ["A. of", "B. in", "C. from", "D. by"], ans: "C. from" },
+            { q: "She prefers tea ___ coffee.", options: ["A. than", "B. over", "C. to", "D. from"], ans: "C. to" },
+            { q: "The cat is hiding ___ the table.", options: ["A. under", "B. in", "C. on", "D. over"], ans: "A. under" }
+        ];
+
+        // RENDER QUESTIONS
+        const container = document.getElementById('quiz-container');
+
+        questions.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'mcq-card';
+            card.innerHTML = `
+                <div class="q-text">${index + 1}. ${item.q}</div>
+                <ul class="opt-list">
+                    ${item.options.map(opt => `<li>${opt}</li>`).join('')}
+                </ul>
+                <button class="show-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+                <div class="ans-box">Correct Answer: <strong>${item.ans}</strong></div>
+            `;
+            container.appendChild(card);
+        });
+
+        // TOGGLE ANSWER FUNCTION
+        function toggleAns(btn) {
+            const box = btn.nextElementSibling;
+            if(box.style.display === 'block') {
+                box.style.display = 'none';
+                btn.innerText = "Show Answer";
+                btn.classList.remove('active-btn');
+            } else {
+                box.style.display = 'block';
+                btn.innerText = "Hide Answer";
+                btn.classList.add('active-btn');
+            }
+        }
+    </script>
+
+</body>
+</html>
